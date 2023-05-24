@@ -1,0 +1,73 @@
+{
+  "name": "lewdio-code",
+  "displayName": "Lewdio Code",
+  "description": "Rot your productivity",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Lewdio Code",
+      "properties": {
+        "lewdio-code.interval": {
+          "type": "number",
+          "default": 60,
+          "description": "How often Lewdio Code will check for wallpaper updates (in seconds)."
+        },
+        "lewdio-code.link": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "default": null,
+          "description": "Your Walltaker link from joi.how."
+        },
+        "lewdio-code.openOnNewWallpaper": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically re-open Lewdio Code when the set wallpaper changes."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "lewdio-code.openPanel",
+        "title": "Lewdio Code: Open Panel"
+      },
+      {
+        "command": "lewdio-code.check",
+        "title": "Lewdio Code: Check Walltaker"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.78.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "vsce": "^2.15.0"
+  }
+}
